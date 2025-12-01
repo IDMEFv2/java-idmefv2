@@ -36,7 +36,7 @@ import java.util.Set;
  *
  */
 public class IDMEFValidator {
-    private static final String SCHEMA_RESOURCE_PATH = "/IDMEFv2.schema";
+    private static final String SCHEMA_RESOURCE_PATH = "/idmefv2/schemas/drafts/IDMEFv2/latest/IDMEFv2.schema";
 
     /**
      * Constructs a Validator.
@@ -44,7 +44,7 @@ public class IDMEFValidator {
     public IDMEFValidator() {
     }
 
-    private boolean validateJsonNode(JsonNode jsonNode) throws IDMEFException {
+    private String[] validateJsonNode(JsonNode jsonNode) throws IDMEFException {
         JsonSchemaFactory factory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V4);
         InputStream is = IDMEFValidator.class.getResourceAsStream(SCHEMA_RESOURCE_PATH);
         if (is == null)
@@ -54,7 +54,13 @@ public class IDMEFValidator {
 
         Set<ValidationMessage> errors = schema.validate(jsonNode);
 
-        return errors.size() == 0;
+        String ret[] = new String[errors.size()];
+
+        int i = 0;
+        for (ValidationMessage m : errors)
+            ret[i++] = m.toString();
+
+        return ret;
     }
 
     /**
@@ -62,11 +68,11 @@ public class IDMEFValidator {
      *
      * @param idmefObject a IDMEF object instance
      *
-     * @return true is json contains a valid IDMEF object according to schema, false if not
+     * @return an array of validation error messages, empty array if no errors
      *
      * @throws IDMEFException if an exception occured during validation (schema cannot be loaded)
      */
-    public boolean validate(IDMEFObject idmefObject) throws IDMEFException {
+    public String[] validate(IDMEFObject idmefObject) throws IDMEFException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.valueToTree(idmefObject);
 
@@ -78,11 +84,11 @@ public class IDMEFValidator {
      *
      * @param json a byte array containing the JSON data
      *
-     * @return true is json contains a valid IDMEF object according to schema, false if not
+     * @return an array of validation error messages, empty array if no errors
      *
      * @throws IDMEFException if an exception occured during validation (schema cannot be loaded)
      */
-    public boolean validate(byte[] json) throws IOException {
+    public String[] validate(byte[] json) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(json);
 

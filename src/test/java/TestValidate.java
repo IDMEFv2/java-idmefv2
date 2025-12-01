@@ -22,52 +22,60 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestValidate {
 
-    private static boolean validate(IDMEFObject idmefObject) {
+    private static String[] validate(IDMEFObject idmefObject) {
         IDMEFValidator validator = new IDMEFValidator();
 
+        String[] ret = {};
         try {
-            return validator.validate(idmefObject);
+            ret = validator.validate(idmefObject);
         } catch (IDMEFException e) {
             fail(e.getMessage());
         }
 
-        return false;
+        for (String error: ret)
+            fail(error);
+
+        return ret;
     }
 
-    private static boolean validate(byte[] json) {
+    private static String[] validate(byte[] json) {
         IDMEFValidator validator = new IDMEFValidator();
 
+        String[] ret = {};
         try {
-            return validator.validate(json);
+            ret = validator.validate(json);
         } catch (IOException e) {
-            fail(e.getMessage());
+            fail(e.getMessage(), e);
         }
 
-        return false;
+        for (String error: ret)
+            fail(error);
+
+        return ret;
     }
 
     @Test
     void testValidateMessage1() {
-        assertTrue(validate(Util.message1()));
+        assertEquals(validate(Util.message1()).length, 0);
     }
 
     @Test
     void testValidateString1() {
-        assertTrue(validate(Util.string1().getBytes(StandardCharsets.UTF_8)));
+        assertEquals(validate(Util.string1().getBytes(StandardCharsets.UTF_8)).length, 0);
     }
 
     @Test
     void testValidateMessage2() {
-        assertTrue(validate(Util.message2()));
+        assertEquals(validate(Util.message2()).length, 0);
     }
 
     @Test
     void testValidateString2() {
-        assertTrue(validate(Util.string2().getBytes(StandardCharsets.UTF_8)));
+        assertEquals(validate(Util.string2().getBytes(StandardCharsets.UTF_8)).length, 0);
     }
 }
