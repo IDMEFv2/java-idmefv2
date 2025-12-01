@@ -33,7 +33,7 @@ public class Util {
 
     static IDMEFObject message1() {
         IDMEFObject msg = new IDMEFObject();
-        msg.put("Version", "2.0.3");
+        msg.put("Version", "2.D.V05");
         msg.put("ID", "09db946e-673e-49af-b4b2-a8cd9da58de6");
         msg.put("CreateTime", "2021-11-22T14:42:51.881033Z");
 
@@ -52,7 +52,7 @@ public class Util {
 
     static String string1() {
         return "{\n" +
-                "\"Version\":\"2.0.3\",\n" +
+                "\"Version\":\"2.D.V05\",\n" +
                 "\"CreateTime\":\"2021-11-22T14:42:51.881033Z\",\n" +
                 "\"ID\":\"09db946e-673e-49af-b4b2-a8cd9da58de6\",\n" +
                 "\"Analyzer\":{\n" +
@@ -68,7 +68,7 @@ public class Util {
 
     static IDMEFObject message2() {
         IDMEFObject msg = new IDMEFObject();
-        msg.put("Version", "2.0.3");
+        msg.put("Version", "2.D.V05");
         msg.put("ID", "fae2ece1-ea54-461a-bedb-953495d6d39c");
         msg.put("CreateTime", "2021-11-23T09:48:58.416374Z");
 
@@ -98,7 +98,7 @@ public class Util {
     }
 
     static String string2() {
-        return "{\"Version\": \"2.0.3\",\n" +
+        return "{\"Version\": \"2.D.V05\",\n" +
                 "\"CreateTime\":\"2021-11-23T09:48:58.416374Z\",\n" +
                 "\"ID\":\"fae2ece1-ea54-461a-bedb-953495d6d39c\",\n" +
                 " \"Analyzer\": {\"IP\": \"127.0.0.1\",\n" +
