@@ -5,3 +5,4 @@
 *.json
 Coverage Report org.idmef.pdf
 Coverage-Report-org.idmef.png
+/target/
