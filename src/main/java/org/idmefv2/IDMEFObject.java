@@ -73,10 +73,10 @@ public class IDMEFObject {
     IDMEFObject(JsonNode node) throws IDMEFException {
         this();
 
-        Iterator<Map.Entry<String, JsonNode>> fields = node.fields();
+        Iterator<Map.Entry<String, JsonNode>> properties = node.properties().iterator();
 
-        while (fields.hasNext()) {
-            Map.Entry<String, JsonNode> field = fields.next();
+        while (properties.hasNext()) {
+            Map.Entry<String, JsonNode> field = properties.next();
 
             put(field.getKey(), convertField(field.getValue()));
         }
