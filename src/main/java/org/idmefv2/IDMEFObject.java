@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.idmef;
+package org.idmefv2;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.databind.JsonNode;

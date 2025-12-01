@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import org.idmef.IDMEFObject;
+import org.idmefv2.IDMEFObject;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileOutputStream;

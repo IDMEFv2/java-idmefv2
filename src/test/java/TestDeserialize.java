@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-import org.idmef.IDMEFObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
+
+import org.idmefv2.IDMEFObject;
 
 public class TestDeserialize {
 

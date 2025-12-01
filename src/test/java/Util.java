@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-import org.idmef.IDMEFObject;
-
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
+
+import org.idmefv2.IDMEFObject;
 
 public class Util {
 

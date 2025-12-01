@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import org.idmef.IDMEFException;
-import org.idmef.IDMEFObject;
-import org.idmef.IDMEFValidator;
+import org.idmefv2.IDMEFException;
+import org.idmefv2.IDMEFObject;
+import org.idmefv2.IDMEFValidator;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

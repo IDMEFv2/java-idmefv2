@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-package org.idmef;
+package org.idmefv2;
+
+import java.io.IOException;
 
 /**
- * Package org.idmef contains the implementation of the IDMEF V2 format specification.
+ * IDMEF exception class.
  *
- * This package implements:
- * <ul>
- *     <li>message implementation in class IDMEFObject</li>
- *     <li>message serialization and deserialization to/from JSON</li>
- *     <li>message validation against current JSON schema of the IDMEF V2 specification</li>
- * </ul>
- *
- * @see https://www.secef.net/faq-idmef/
+ * IDMEF exceptions are thrown when validating, serializing an object or deserializing bytes.
  *
  */
+public class IDMEFException extends IOException {
+    /**
+     * Construct a IDMEFException
+     *
+     * @param message the message contained in the exception
+     */
+    public IDMEFException(String message) {
+        super(message);
+    }
+}
