@@ -1,10 +1,10 @@
 # Java IDMEFv2 library
 
-![GitHub top language](https://img.shields.io/github/languages/top/idmefv2/java-idmefv2)
-![GitHub](https://img.shields.io/github/license/idmefv2/java-idmefv2)
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/idmefv2/java-idmefv2)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/idmefv2/java-idmefv2)
-![GitHub issues](https://img.shields.io/github/issues/idmefv2/java-idmefv2)
+![GitHub top language](https://img.shields.io/github/languages/top/IDMEFv2/java-idmefv2)
+![GitHub](https://img.shields.io/github/license/IDMEFv2/java-idmefv2)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IDMEFv2/java-idmefv2)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/IDMEFv2/java-idmefv2)
+![GitHub issues](https://img.shields.io/github/issues/IDMEFv2/java-idmefv2)
 
 A Java library for parsing, handling, and generating JSON IDMEFv2 messages. It can be used to represent Incident Detection Message Exchange Format (IDMEFv2) messages in memory, validate them and serialize/unserialize them for exchange with other systems.
 
