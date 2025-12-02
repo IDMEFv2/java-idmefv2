@@ -1,8 +1,8 @@
 # Java IDMEFv2 library
 
-![GitHub top language](https://img.shields.io/github/languages/top/teclib-idmef/java-idmef-library) 
-![GitHub](https://img.shields.io/github/license/teclib-idmef/java-idmef-library) 
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/teclib-idmef/java-idmef-library) 
+![GitHub top language](https://img.shields.io/github/languages/top/teclib-idmef/java-idmef-library)
+![GitHub](https://img.shields.io/github/license/teclib-idmef/java-idmef-library)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/teclib-idmef/java-idmef-library)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/teclib-idmef/java-idmef-library)
 ![GitHub issues](https://img.shields.io/github/issues/teclib-idmef/java-idmef-library)
 [![](https://jitpack.io/v/teclib-idmef/java-idmef-library.svg)](https://jitpack.io/#teclib-idmef/java-idmef-library)
@@ -28,15 +28,15 @@ The library has the following third-party dependencies:
 * Jackson (aka JSON for Java): https://github.com/FasterXML/jackson
 * Networknt Java JSON Schema Validator: https://github.com/networknt/json-schema-validator
 
-**Note**: building using gradle automaticaly pulls the needed dependencies.
+**Note**: building automaticaly pulls the needed dependencies.
 
 To compile the library:
 
 ``` shell
-./gradlew build
-``` 
+mvn package
+```
 
-This will build a JAR archive located in `./build/libs`.
+This will build a JAR archive located in `./target`.
 
 ## Using the library
 
@@ -67,15 +67,15 @@ Add it in your root build.gradle at the end of repositories:
 
 ### Message creation
 
-A new message can be created by instantiating the `org.idmef.IDMEFObject` class. Once created, message fields can be set using the `put()` method.
+A new message can be created by instantiating the `org.idmefv2.IDMEFObject` class. Once created, message fields can be set using the `put()` method.
 
 ``` java
-import org.idmef.IDMEFObject;
+import org.idmefv2.IDMEFObject;
 
 class Test {
     static IDMEFObject message1() {
         IDMEFObject msg = new IDMEFObject();
-        msg.put("Version", "2.0.3");
+        msg.put("Version", "2.D.V05");
         msg.put("ID", "09db946e-673e-49af-b4b2-a8cd9da58de6");
         msg.put("CreateTime", "2021-11-22T14:42:51.881033Z");
 
@@ -106,9 +106,9 @@ class Test {
 You can validate an IDMEFv2 message using `validate()` method of class `IDMEFValidator`. A `IDMEFException` is raised if the message is invalid.
 
 ``` java
-import org.idmef.IDMEFException;
-import org.idmef.IDMEFObject;
-import org.idmef.IDMEFValidator;
+import org.idmefv2.IDMEFException;
+import org.idmefv2.IDMEFObject;
+import org.idmefv2.IDMEFValidator;
 
 /* see above to generate IDMEF message */
 
@@ -117,7 +117,7 @@ IDMEFObject msg1 = message1();
 IDMEFValidator validator = new IDMEFValidator();
 
 try {
-validator.validate(msg1);
+    validator.validate(msg1);
 } catch (IDMEFException e) {
     System.err.println(e.getMessage());
 }
@@ -130,7 +130,7 @@ System.out.println("Message is valid");
 Before the message can be sent to a remote system, it must be serialized using the `serialize()` method.
 
 ``` java
-import org.idmef.IDMEFObject;
+import org.idmefv2.IDMEFObject;
 
 /* see above to generate IDMEF message */
 
@@ -152,12 +152,12 @@ System.out.println("Message is serialized:" + new String(b));
 Likewise, when a message is received in its serialized form, it must be first deserialized using the `deserialize()` class method.
 
 ``` java
-import org.idmef.IDMEFObject;
+import org.idmefv2.IDMEFObject;
 
 class Test4 {
     static String string1() {
         return "{\n" +
-                "\"Version\":\"2.0.3\",\n" +
+                "\"Version\":\"2.D.V05\",\n" +
                 "\"CreateTime\":\"2021-11-22T14:42:51.881033Z\",\n" +
                 "\"ID\":\"09db946e-673e-49af-b4b2-a8cd9da58de6\",\n" +
                 "\"Analyzer\":{\n" +
@@ -191,4 +191,3 @@ class Test4 {
 ## Contributions
 
 All contributions must be licensed under the Apache-2.0 license. See the LICENSE file inside this repository for more information.
-
