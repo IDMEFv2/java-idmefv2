@@ -1,19 +1,18 @@
 # Java IDMEFv2 library
 
-![GitHub top language](https://img.shields.io/github/languages/top/teclib-idmef/java-idmef-library)
-![GitHub](https://img.shields.io/github/license/teclib-idmef/java-idmef-library)
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/teclib-idmef/java-idmef-library)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/teclib-idmef/java-idmef-library)
-![GitHub issues](https://img.shields.io/github/issues/teclib-idmef/java-idmef-library)
-[![](https://jitpack.io/v/teclib-idmef/java-idmef-library.svg)](https://jitpack.io/#teclib-idmef/java-idmef-library)
+![GitHub top language](https://img.shields.io/github/languages/top/idmefv2/java-idmefv2)
+![GitHub](https://img.shields.io/github/license/idmefv2/java-idmefv2)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/idmefv2/java-idmefv2)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/idmefv2/java-idmefv2)
+![GitHub issues](https://img.shields.io/github/issues/idmefv2/java-idmefv2)
 
 A Java library for parsing, handling, and generating JSON IDMEFv2 messages. It can be used to represent Incident Detection Message Exchange Format (IDMEFv2) messages in memory, validate them and serialize/unserialize them for exchange with other systems.
 
-IDMEFv2 messages can be transported using the [`java-idmef-transport-library`](https://github.com/teclib-idmef/java-idmef-transport-library).
+IDMEFv2 messages can be transported using the [`java-idmef-transport-library`](https://github.com/idmefv2/java-idmef-transport-library).
 
-This code is currently in an experimental status and is regularly kept in sync with the development status of the IDMEFv2 format, as part of the [SECurity Exchange Format project](https://www.secef.net/).
+This code is currently in an experimental status and is regularly kept in sync with the development status of the IDMEFv2 format.
 
-The latest revision of the IDMEFv2 format specification can be found there: https://github.com/IDMEFv2/IDMEFv2-Specification
+The latest revision of the IDMEFv2 format specification can be found there: https://github.com/IDMEFv2/IDMEFv2-Drafts
 
 You can find more information about the previous version (v1) of the Intrusion Detection Message Exchange Format in [RFC 4765](https://tools.ietf.org/html/rfc4765).
 
@@ -40,30 +39,12 @@ This will build a JAR archive located in `./target`.
 
 ## Using the library
 
-### Add the library to your project dependencies
+### Add the library JAR to your project dependencies
 
-The library is published on https://jitpack.io. Using the library is therefore very simple:
+After downloading the library JAR from https://github.com/IDMEFv2/java-idmefv2/releases, add the JAR file to your project:
 
-**Step 1**. Add the JitPack repository to your build file
-
-Add it in your root build.gradle at the end of repositories:
-
-```
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-```
-
-**Step 2**. Add the dependency
-
-```
-	dependencies {
-	        implementation 'com.github.teclib-idmef:java-idmef-library:V1.0.2'
-	}
-```
+* **maven**: see https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html
+* **gradle**: see for instance https://www.baeldung.com/gradle-dependencies-local-jar
 
 ### Message creation
 
