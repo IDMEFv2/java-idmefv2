@@ -36,7 +36,7 @@ import java.util.Set;
  *
  */
 public class IDMEFValidator {
-    private static final String SCHEMA_RESOURCE_PATH = "/idmefv2/schemas/drafts/IDMEFv2/latest/IDMEFv2.schema";
+    private static final String SCHEMA_RESOURCE_PATH = "/org/idmefv2/schemas/drafts/IDMEFv2/latest/IDMEFv2.schema";
 
     /**
      * Constructs a Validator.

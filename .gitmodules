@@ -1,0 +1,3 @@
+[submodule "src/main/resources/org/idmefv2/schemas/drafts"]
+	path = src/main/resources/org/idmefv2/schemas/drafts
+	url = https://github.com/IDMEFv2/IDMEFv2-Drafts.git
